@@ -5,6 +5,7 @@ export const IMAGE_NODE_ID = 'FIE_original-image';
 export const NODES_TRANSFORMER_ID = 'FIE_nodes-transformer';
 
 export const WATERMARK_ANNOTATION_ID = 'watermark';
+export const STICKER_ANNOTATION_ID = 'stickers';
 
 export const TRANSLATIONS_GRID_UUID = '353297d2-40b4-4684-a875-45a2178a8157';
 
@@ -13,6 +14,7 @@ export const TABS_IDS = {
   FILTERS: 'Filters',
   ADJUST: 'Adjust',
   WATERMARK: 'Watermark',
+  STICKERS: 'Stickers',
   ANNOTATE: 'Annotate',
   RESIZE: 'Resize',
 };
@@ -42,6 +44,7 @@ export const TOOLS_IDS = {
   WATERMARK: 'Watermark',
   PEN: 'Pen',
   RESIZE: 'Resize',
+  STICKERS: 'Stickers',
 };
 
 export const FLIP_DIRECTIONS = {

@@ -43,6 +43,7 @@ const CanvasNode = ({ children }) => {
   const [isPanningEnabled, setIsPanningEnabled] = useState(
     tabId !== TABS_IDS.ANNOTATE &&
       tabId !== TABS_IDS.WATERMARK &&
+      tabId !== TABS_IDS.STICKERS &&
       zoom.factor > defaultZoomFactor,
   );
 
@@ -125,7 +126,9 @@ const CanvasNode = ({ children }) => {
 
   const resetPanningAbility = () =>
     setIsPanningEnabled(
-      tabId !== TABS_IDS.ANNOTATE || tabId === TABS_IDS.WATERMARK,
+      tabId !== TABS_IDS.ANNOTATE ||
+        tabId === TABS_IDS.WATERMARK ||
+        tabId === TABS_IDS.STICKERS,
     );
 
   const endTouchesZoomingEnablePanning = () => {
@@ -176,6 +179,7 @@ const CanvasNode = ({ children }) => {
     setIsPanningEnabled(
       tabId !== TABS_IDS.ANNOTATE &&
         tabId !== TABS_IDS.WATERMARK &&
+        tabId !== TABS_IDS.STICKERS &&
         zoom.factor > defaultZoomFactor,
     );
 

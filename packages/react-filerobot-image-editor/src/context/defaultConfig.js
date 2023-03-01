@@ -67,6 +67,11 @@ export default {
     textScalingRatio: 0.5,
     imageScalingRatio: 0.5,
   },
+  [TOOLS_IDS.STICKERS]: {
+    gallery: [],
+    textScalingRatio: 0.5,
+    imageScalingRatio: 0.5,
+  },
   [TOOLS_IDS.CROP]: {
     minWidth: MIN_CROP.WIDTH,
     minHeight: MIN_CROP.HEIGHT,

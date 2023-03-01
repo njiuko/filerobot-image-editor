@@ -12,6 +12,7 @@ const finetune = getElementById('finetune');
 const filter = getElementById('filter');
 const filterLabel = getElementById('filter-label');
 const watermark = getElementById('watermark');
+const stickers = getElementById('stickers');
 const annotate = getElementById('annotate');
 const annotateLabel = getElementById('annotate-label');
 const resize = getElementById('resize');
@@ -42,6 +43,7 @@ const DEFAULT_IMAGES_SRCS = [
 ];
 
 const selectedTabs = [
+  TABS.STICKERS,
   TABS.ADJUST,
   TABS.FINETUNE,
   TABS.FILTERS,
@@ -55,6 +57,7 @@ const IMG_EDITOR_TABS = {
   finetune: TABS.FINETUNE,
   filter: TABS.FILTERS,
   watermark: TABS.WATERMARK,
+  stickers: TABS.STICKERS,
   annotate: TABS.ANNOTATE,
   resize: TABS.RESIZE,
 };
@@ -63,7 +66,7 @@ const pluginConfig = {
   ...config,
   source: 'https://scaleflex.cloudimg.io/v7/demo/river.png',
   tabsIds: selectedTabs,
-  defaultTabId: TABS.RESIZE,
+  defaultTabId: selectedTabs[0],
   defaultToolId: null,
   observePluginContainerSize: true,
   cloudimage: {
@@ -274,6 +277,7 @@ crop.addEventListener('change', onChangeTabsHandler);
 finetune.addEventListener('change', onChangeTabsHandler);
 filter.addEventListener('change', onChangeTabsHandler);
 watermark.addEventListener('change', onChangeTabsHandler);
+stickers.addEventListener('change', onChangeTabsHandler);
 annotate.addEventListener('change', onChangeTabsHandler);
 resize.addEventListener('change', onChangeTabsHandler);
 addImg.addEventListener('change', uploadImg);

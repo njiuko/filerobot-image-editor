@@ -10,7 +10,7 @@ const useAnnotationEvents = () => {
   const { tabId, dispatch } = useStore();
 
   const isAnnotationEventsDisabled = useMemo(
-    () => tabId !== TABS_IDS.ANNOTATE && tabId !== TABS_IDS.WATERMARK,
+    () => tabId !== TABS_IDS.ANNOTATE && tabId !== TABS_IDS.WATERMARK && tabId !== TABS_IDS.STICKERS,
     [tabId],
   );
 

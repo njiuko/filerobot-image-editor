@@ -5,6 +5,7 @@ declare const TABS = {
   FILTERS: 'Filters',
   ADJUST: 'Adjust',
   WATERMARK: 'Watermark',
+  STICKERS: 'Stickers',
   ANNOTATE: 'Annotate',
   RESIZE: 'Resize',
 } as const;
@@ -32,6 +33,7 @@ declare const TOOLS = {
   IMAGE: 'Image',
   ARROW: 'Arrow',
   WATERMARK: 'Watermark',
+  STICKERS: 'Stickers',
   PEN: 'Pen',
   RESIZE: 'Resize',
 } as const;

@@ -19,6 +19,7 @@ export default {
   finetuneTab: 'Finetune',
   filtersTab: 'Filters',
   watermarkTab: 'Watermark',
+  stickersTab: 'Stickers',
   annotateTab: 'Draw',
   resize: 'Resize',
   resizeTab: 'Resize',

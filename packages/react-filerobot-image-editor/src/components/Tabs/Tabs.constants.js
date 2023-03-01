@@ -34,6 +34,11 @@ export const AVAILABLE_TABS = [
     icon: Watermark,
   },
   {
+    id: TABS_IDS.STICKERS,
+    labelKey: 'stickersTab',
+    icon: Watermark,
+  },
+  {
     id: TABS_IDS.ANNOTATE,
     labelKey: 'annotateTab',
     icon: Annotate,

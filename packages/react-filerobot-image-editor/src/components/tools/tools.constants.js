@@ -20,6 +20,9 @@ import { PolygonButton, PolygonOptions } from './Polygon';
 import { Resize } from './Resize';
 import { Watermark } from './Watermark';
 
+import StickersOptions from './Stickers/StickersOptions';
+import StickersButton from './Stickers/StickersButton';
+
 export const TOOLS_ITEMS = {
   [TOOLS_IDS.CROP]: {
     id: TOOLS_IDS.CROP,
@@ -72,6 +75,11 @@ export const TOOLS_ITEMS = {
   [TOOLS_IDS.WATERMARK]: {
     id: TOOLS_IDS.WATERMARK,
     Item: Watermark,
+  },
+  [TOOLS_IDS.STICKERS]: {
+    id: TOOLS_IDS.STICKERS,
+    Item: StickersButton,
+    ItemOptions: StickersOptions,
   },
   [TOOLS_IDS.TEXT]: {
     id: TOOLS_IDS.TEXT,
@@ -144,6 +152,8 @@ export const TABS_TOOLS = {
     TOOLS_IDS.PEN,
     TOOLS_IDS.LINE,
     TOOLS_IDS.ARROW,
+    TOOLS_IDS.STICKERS,
   ],
+  [TABS_IDS.STICKERS]: [TOOLS_IDS.TEXT, TOOLS_IDS.STICKERS],
   [TABS_IDS.RESIZE]: [TOOLS_IDS.RESIZE],
 };
