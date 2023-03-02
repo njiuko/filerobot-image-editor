@@ -21,6 +21,15 @@ const StyledPickerTrigger = styled.div.attrs(({ $color }) => ({
 
 const StyledColorPicker = styled(ColorPicker)`
   max-width: 212px;
+  ${(props) =>
+    props.restrictPicker &&
+    `
+    & > .SfxColorPicker-range-picker,
+    & > .SfxColorPicker-bar-wrapper,
+    & > .SfxColorPicker-action {
+      display: none !important;
+    }
+  `}
 `;
 
 export { StyledPickerTrigger, StyledColorPicker };

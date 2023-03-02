@@ -115,3 +115,20 @@ export const FEEDBACK_STATUSES = {
   WARNING: 'warning',
   ERROR: 'error',
 };
+
+export const DEFAULT_STICKEREI_COLORS = [
+  '#ffffff',
+  '#728394',
+  '#34495e',
+  '#3498db',
+  '#1870a9',
+  '#5b48a2',
+  '#8d44ad',
+  '#d35c9e',
+  '#ffa800',
+  '#e67e22',
+  '#e74c3c',
+  '#8fb021',
+  '#1abc9c',
+  '#27ae60',
+];

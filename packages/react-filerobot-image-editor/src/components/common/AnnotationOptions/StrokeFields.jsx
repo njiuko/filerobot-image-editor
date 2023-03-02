@@ -41,6 +41,7 @@ const StrokeFields = ({ annotation, updateAnnotation, t }) => {
         color={stroke}
         onChange={changeStrokeColor}
         colorFor="stroke"
+        restrictPicker
       />
     </StyledSpacedOptionFields>
   );

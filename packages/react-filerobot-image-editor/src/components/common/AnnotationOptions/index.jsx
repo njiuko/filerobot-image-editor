@@ -101,6 +101,7 @@ const AnnotationOptions = ({
           color={annotation.fill}
           onChange={changeAnnotationFill}
           colorFor="fill"
+          restrictPicker
         />
       )}
       {children}
