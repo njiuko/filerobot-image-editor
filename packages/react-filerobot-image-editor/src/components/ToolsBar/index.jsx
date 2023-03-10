@@ -95,7 +95,12 @@ const ToolsBar = () => {
   return (
     <StyledToolsBar className="FIE_tools-bar-wrapper">
       <ToolsBarItemOptionsWrapper>
-        {ToolOptionsComponent && <ToolOptionsComponent t={t} />}
+        {ToolOptionsComponent && (
+          <ToolOptionsComponent
+            config={TOOLS_ITEMS[tabId]?.config[currentToolId]}
+            t={t}
+          />
+        )}
       </ToolsBarItemOptionsWrapper>
       {items && (
         <StyledToolsBarItems className="FIE_tools-bar">

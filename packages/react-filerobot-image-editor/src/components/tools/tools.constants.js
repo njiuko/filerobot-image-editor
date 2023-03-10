@@ -80,6 +80,19 @@ export const TOOLS_ITEMS = {
     id: TOOLS_IDS.STICKERS,
     Item: StickersButton,
     ItemOptions: StickersOptions,
+    config: {
+      [TOOLS_IDS.TEXT]: {
+        restrictColorPicker: true,
+        disableTextBoldOption: true,
+        disableTextItalicOption: true,
+        disableTextAlignment: true,
+        disableTextSpacings: true,
+        disableOpacity: true,
+        disableStroke: true,
+        disableShadow: true,
+        disablePosition: true,
+      },
+    },
   },
   [TOOLS_IDS.TEXT]: {
     id: TOOLS_IDS.TEXT,

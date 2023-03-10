@@ -30,6 +30,7 @@ const AnnotationOptions = ({
   updateAnnotation,
   hideFillOption,
   hidePositionField,
+  textOptionsConfig,
   className,
   ...rest
 }) => {
@@ -101,23 +102,30 @@ const AnnotationOptions = ({
           color={annotation.fill}
           onChange={changeAnnotationFill}
           colorFor="fill"
-          restrictPicker
+          restrictColorPicker={textOptionsConfig?.restrictColorPicker}
         />
       )}
       {children}
-      {options.map(
-        (option) =>
-          option && (
-            <StyledIconWrapper
-              className="FIE_annotation-option-triggerer"
-              key={option.name}
-              title={t(option.titleKey)}
-              onClick={(e) => toggleOptionPopup(e, option.name)}
-            >
-              <option.Icon size={18} />
-            </StyledIconWrapper>
-          ),
-      )}
+      {options
+        .filter(
+          ({ titleKey }) =>
+            !textOptionsConfig[
+              `disable${titleKey[0].toUpperCase() + titleKey.slice(1)}`
+            ],
+        )
+        .map(
+          (option) =>
+            option && (
+              <StyledIconWrapper
+                className="FIE_annotation-option-triggerer"
+                key={option.name}
+                title={t(option.titleKey)}
+                onClick={(e) => toggleOptionPopup(e, option.name)}
+              >
+                <option.Icon size={18} />
+              </StyledIconWrapper>
+            ),
+        )}
       {OptionPopupComponent && (
         <Menu
           className="FIE_annotation-option-popup"
@@ -147,6 +155,7 @@ AnnotationOptions.defaultProps = {
   hideFillOption: false,
   hidePositionField: false,
   className: undefined,
+  textOptionsConfig: {},
 };
 
 AnnotationOptions.propTypes = {
@@ -159,6 +168,7 @@ AnnotationOptions.propTypes = {
   moreOptionsPopupComponentsObj: PropTypes.instanceOf(Object),
   hidePositionField: PropTypes.bool,
   className: PropTypes.string,
+  textOptionsConfig: PropTypes.instanceOf(Object),
 };
 
 export default AnnotationOptions;

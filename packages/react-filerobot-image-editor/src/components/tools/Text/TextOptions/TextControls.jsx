@@ -25,7 +25,7 @@ import {
   deactivateTextChange,
 } from './handleTextChangeArea';
 
-const TextControls = ({ text, saveText, children }) => {
+const TextControls = ({ text, saveText, children, textOptionsConfig }) => {
   const { dispatch, textIdOfEditableContent, designLayer, t, config } =
     useStore();
   const { useCloudimage } = config;
@@ -118,6 +118,7 @@ const TextControls = ({ text, saveText, children }) => {
   return (
     <AnnotationOptions
       className="FIE_text-tool-options"
+      textOptionsConfig={textOptionsConfig}
       annotation={text}
       updateAnnotation={saveText}
       morePoppableOptionsPrepended={!useCloudimage ? TEXT_POPPABLE_OPTIONS : []}
@@ -158,20 +159,24 @@ const TextControls = ({ text, saveText, children }) => {
       />
       {!useCloudimage && (
         <>
-          <StyledIconWrapper
-            className="FIE_text-bold-option"
-            aria-selected={(text.fontStyle || '').includes('bold')}
-            onClick={() => changeFontStyle('bold')}
-          >
-            <FontBold />
-          </StyledIconWrapper>
-          <StyledIconWrapper
-            className="FIE_text-italic-option"
-            aria-selected={(text.fontStyle || '').includes('italic')}
-            onClick={() => changeFontStyle('italic')}
-          >
-            <FontItalic />
-          </StyledIconWrapper>
+          {!textOptionsConfig?.disableTextBoldOption && (
+            <StyledIconWrapper
+              className="FIE_text-bold-option"
+              aria-selected={(text.fontStyle || '').includes('bold')}
+              onClick={() => changeFontStyle('bold')}
+            >
+              <FontBold />
+            </StyledIconWrapper>
+          )}
+          {!textOptionsConfig?.disableTextItalicOption && (
+            <StyledIconWrapper
+              className="FIE_text-italic-option"
+              aria-selected={(text.fontStyle || '').includes('italic')}
+              onClick={() => changeFontStyle('italic')}
+            >
+              <FontItalic />
+            </StyledIconWrapper>
+          )}
         </>
       )}
       {children}
@@ -180,6 +185,7 @@ const TextControls = ({ text, saveText, children }) => {
 };
 
 TextControls.defaultProps = {
+  textOptionsConfig: {},
   children: null,
 };
 
@@ -187,6 +193,7 @@ TextControls.propTypes = {
   text: PropTypes.instanceOf(Object).isRequired,
   saveText: PropTypes.func.isRequired,
   children: PropTypes.node,
+  textOptionsConfig: PropTypes.instanceOf(Object),
 };
 
 export default TextControls;

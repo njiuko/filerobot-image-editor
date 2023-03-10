@@ -116,7 +116,7 @@ export const FEEDBACK_STATUSES = {
   ERROR: 'error',
 };
 
-export const DEFAULT_STICKEREI_COLORS = [
+export const DEFAULT_COLORS_CONFIG = [
   '#ffffff',
   '#728394',
   '#34495e',

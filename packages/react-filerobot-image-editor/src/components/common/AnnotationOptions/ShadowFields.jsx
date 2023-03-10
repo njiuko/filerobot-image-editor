@@ -88,7 +88,7 @@ const ShadowFields = ({ annotation, updateAnnotation, t }) => {
         color={shadowColor}
         onChange={changeShadowColor}
         colorFor="shadow"
-        restrictPicker
+        restrictColorPicker
       />
     </StyledSpacedOptionFields>
   );

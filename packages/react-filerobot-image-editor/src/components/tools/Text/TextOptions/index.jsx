@@ -7,14 +7,22 @@ import { useAnnotation } from 'hooks';
 import { TOOLS_IDS } from 'utils/constants';
 import TextControls from './TextControls';
 
-const TextOptions = ({ t }) => {
+const TextOptions = ({ t, config }) => {
   const [text, saveText] = useAnnotation({ name: TOOLS_IDS.TEXT });
-
-  return <TextControls text={text} saveText={saveText} t={t} />;
+  return (
+    <TextControls
+      textOptionsConfig={config}
+      text={text}
+      saveText={saveText}
+      t={t}
+    />
+  );
 };
 
 TextOptions.propTypes = {
   t: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  config: PropTypes.instanceOf(Object),
 };
 
 export default TextOptions;

@@ -7,7 +7,7 @@ import Popper from '@scaleflex/ui/core/popper';
 import { useStore } from 'hooks';
 import { SET_LATEST_COLOR } from 'actions';
 import { StyledColorPicker, StyledPickerTrigger } from './ColorInput.styled';
-import { DEFAULT_STICKEREI_COLORS } from '../../../utils/constants';
+import getPinnedColors from '../../../utils/getPinnedColors';
 
 const pinnedColorsKey = 'FIE_pinnedColors';
 
@@ -17,7 +17,7 @@ const ColorInput = ({
   onChange,
   color,
   colorFor,
-  restrictPicker = false,
+  restrictColorPicker,
 }) => {
   const {
     selectionsIds = [],
@@ -32,12 +32,7 @@ const ColorInput = ({
   );
 
   const [pinnedColors, setPinnedColors] = useState(
-    // eslint-disable-next-line no-nested-ternary
-    restrictPicker
-      ? DEFAULT_STICKEREI_COLORS
-      : window?.localStorage
-      ? JSON.parse(localStorage.getItem(pinnedColorsKey) || '[]')
-      : [],
+    getPinnedColors(restrictColorPicker),
   );
 
   const changePinnedColors = (newPinnedColors) => {
@@ -105,7 +100,7 @@ const ColorInput = ({
           onChange={changeColor}
           defaultColor={currentColor}
           pinnedColors={pinnedColors}
-          restrictPicker={restrictPicker}
+          restrictColorPicker={restrictColorPicker}
         />
       </Popper>
     </>
@@ -115,7 +110,7 @@ const ColorInput = ({
 ColorInput.defaultProps = {
   position: 'top',
   color: undefined,
-  restrictPicker: false,
+  restrictColorPicker: false,
 };
 
 ColorInput.propTypes = {
@@ -123,7 +118,7 @@ ColorInput.propTypes = {
   colorFor: PropTypes.string.isRequired,
   position: PropTypes.string,
   color: PropTypes.string,
-  restrictPicker: PropTypes.bool,
+  restrictColorPicker: PropTypes.bool,
 };
 
 export default ColorInput;
