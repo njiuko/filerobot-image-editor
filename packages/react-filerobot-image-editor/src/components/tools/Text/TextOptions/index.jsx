@@ -8,7 +8,7 @@ import { TOOLS_IDS } from 'utils/constants';
 import TextControls from './TextControls';
 
 const TextOptions = ({ t, config }) => {
-  const [text, saveText] = useAnnotation({ name: TOOLS_IDS.TEXT });
+  const [text, saveText] = useAnnotation({ name: TOOLS_IDS.TEXT }, 20);
   return (
     <TextControls
       textOptionsConfig={config}
@@ -19,9 +19,12 @@ const TextOptions = ({ t, config }) => {
   );
 };
 
+TextOptions.defaultProps = {
+  config: {},
+};
+
 TextOptions.propTypes = {
   t: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/require-default-props
   config: PropTypes.instanceOf(Object),
 };
 

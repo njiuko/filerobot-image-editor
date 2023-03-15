@@ -21,15 +21,39 @@ const StyledPickerTrigger = styled.div.attrs(({ $color }) => ({
 
 const StyledColorPicker = styled(ColorPicker)`
   max-width: 212px;
-  ${({ restrictColorPicker }) =>
-    restrictColorPicker &&
-    `
-    & > .SfxColorPicker-range-picker,
-    & > .SfxColorPicker-bar-wrapper,
-    & > .SfxColorPicker-action {
-      display: none !important;
+
+  ${` & > .jLEkRq {
+      max-height: 200px;
+      overflow-y: auto;
+  }`}
+
+  ${({ colorPickerConfig }) =>
+    Object.keys(colorPickerConfig?.restrictPicker)
+      ? `
+    ${
+      colorPickerConfig?.restrictPicker.hideRangePicker
+        ? `& > .SfxColorPicker-range-picker {
+            display: none !important;
+          }`
+        : ''
     }
-  `}
+    ${
+      colorPickerConfig?.restrictPicker.hideBarWrapper
+        ? `& > .SfxColorPicker-bar-wrapper {
+            display: none !important;
+          }`
+        : ''
+    }
+    ${
+      colorPickerConfig?.restrictPicker.hidePickerAction
+        ? `& > .SfxColorPicker-action {
+            display: none !important;
+          }`
+        : ''
+    }  
+    
+  `
+      : ``}
 `;
 
 export { StyledPickerTrigger, StyledColorPicker };

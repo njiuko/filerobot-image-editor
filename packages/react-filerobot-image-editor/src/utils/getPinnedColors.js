@@ -1,8 +1,8 @@
 import { DEFAULT_COLORS_CONFIG } from './constants';
 
 const pinnedColorsKey = 'FIE_pinnedColors';
-const getPinnedColors = (restrictColorPicker) => {
-  if (DEFAULT_COLORS_CONFIG.length && restrictColorPicker) {
+const getPinnedColors = (colorPickerConfig) => {
+  if (DEFAULT_COLORS_CONFIG.length && Object.keys(colorPickerConfig)) {
     return DEFAULT_COLORS_CONFIG;
   }
   return window?.localStorage

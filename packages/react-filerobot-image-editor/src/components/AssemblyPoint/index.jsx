@@ -1,7 +1,8 @@
 /** External Dependencies */
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ThemeProvider from '@scaleflex/ui/theme';
+import WebFont from 'webfontloader';
 
 /** Internal Dependencies */
 import App from 'components/App';
@@ -9,6 +10,7 @@ import { AppProvider } from 'context';
 import defaultConfig from 'context/defaultConfig';
 import deepMerge from 'utils/deepMerge';
 import { FontsFaces, OverrideDefaultStyles } from './globalStyles';
+import { DEFAULT_FONTS_SELECTION } from '../../utils/constants';
 
 const AssemblyPoint = (props) => {
   const { img, source, useCloudimage, cloudimage } = props;
@@ -35,7 +37,14 @@ const AssemblyPoint = (props) => {
   }
 
   const defaultAndProvidedConfigMerged = deepMerge(defaultConfig, props);
-
+  // TBD WebfontLoader
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: DEFAULT_FONTS_SELECTION.map((curr) => curr?.value || curr),
+      },
+    });
+  }, []);
   return (
     <React.StrictMode>
       <ThemeProvider theme={defaultAndProvidedConfigMerged.theme}>

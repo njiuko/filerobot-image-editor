@@ -33,7 +33,8 @@
     "@scaleflex/ui": "1.0.0-beta.99",
     "konva": "8.4.2",
     "prop-types": "15.7.2",
-    "react-konva": "18.2.4"
+    "react-konva": "18.2.4",
+    "webfontloader": "^1.6.28"
   },
   "peerDependencies": {
     "react": "18.2.0",

@@ -82,7 +82,14 @@ export const TOOLS_ITEMS = {
     ItemOptions: StickersOptions,
     config: {
       [TOOLS_IDS.TEXT]: {
-        restrictColorPicker: true,
+        colorPickerConfig: {
+          pinnedColorsLimit: null,
+          restrictPicker: {
+            hideRangePicker: true,
+            hideBarWrapper: true,
+            hidePickerAction: true,
+          },
+        },
         disableTextBoldOption: true,
         disableTextItalicOption: true,
         disableTextAlignment: true,

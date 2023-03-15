@@ -102,7 +102,7 @@ const AnnotationOptions = ({
           color={annotation.fill}
           onChange={changeAnnotationFill}
           colorFor="fill"
-          restrictColorPicker={textOptionsConfig?.restrictColorPicker}
+          colorPickerConfig={textOptionsConfig?.colorPickerConfig}
         />
       )}
       {children}

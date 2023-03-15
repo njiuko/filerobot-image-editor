@@ -141,6 +141,7 @@ const TextControls = ({ text, saveText, children, textOptionsConfig }) => {
               className="FIE_text-font-family-item"
               key={fontFamily.value ?? fontFamily}
               value={fontFamily.value ?? fontFamily}
+              style={{ fontFamily: fontFamily.label ?? fontFamily }}
             >
               {fontFamily.label ?? fontFamily}
             </MenuItem>

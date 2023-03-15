@@ -1,5 +1,10 @@
 /** Internal Dependencies */
-import { MIN_CROP, TABS_IDS, TOOLS_IDS } from 'utils/constants';
+import {
+  DEFAULT_FONTS_SELECTION,
+  MIN_CROP,
+  TABS_IDS,
+  TOOLS_IDS,
+} from 'utils/constants';
 
 export default {
   theme: {
@@ -23,13 +28,8 @@ export default {
   },
   [TOOLS_IDS.TEXT]: {
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    fontFamily: 'Arial',
-    fonts: [
-      { label: 'Arial', value: 'Arial' },
-      'Tahoma',
-      'Sans-serif',
-      { label: 'Comic Sans', value: 'Comic-sans' },
-    ],
+    fontFamily: 'Parisienne',
+    fonts: DEFAULT_FONTS_SELECTION,
     fontSize: 14,
     letterSpacing: 0,
     lineHeight: 1,

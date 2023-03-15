@@ -17,7 +17,7 @@ const ColorInput = ({
   onChange,
   color,
   colorFor,
-  restrictColorPicker,
+  colorPickerConfig,
 }) => {
   const {
     selectionsIds = [],
@@ -32,7 +32,7 @@ const ColorInput = ({
   );
 
   const [pinnedColors, setPinnedColors] = useState(
-    getPinnedColors(restrictColorPicker),
+    getPinnedColors(colorPickerConfig),
   );
 
   const changePinnedColors = (newPinnedColors) => {
@@ -42,7 +42,8 @@ const ColorInput = ({
     const localStoragePinnedColors =
       window.localStorage.getItem(pinnedColorsKey);
     if (JSON.stringify(newPinnedColors) !== localStoragePinnedColors) {
-      const maxOfSavedColors = 9;
+      const maxOfSavedColors = colorPickerConfig?.pinnedColorsLimit;
+      console.log(maxOfSavedColors)
       const pinnedColorsToSave = newPinnedColors.slice(-maxOfSavedColors);
       window.localStorage.setItem(
         pinnedColorsKey,
@@ -100,7 +101,7 @@ const ColorInput = ({
           onChange={changeColor}
           defaultColor={currentColor}
           pinnedColors={pinnedColors}
-          restrictColorPicker={restrictColorPicker}
+          colorPickerConfig={colorPickerConfig}
         />
       </Popper>
     </>
@@ -110,7 +111,7 @@ const ColorInput = ({
 ColorInput.defaultProps = {
   position: 'top',
   color: undefined,
-  restrictColorPicker: false,
+  colorPickerConfig: {},
 };
 
 ColorInput.propTypes = {
@@ -118,7 +119,7 @@ ColorInput.propTypes = {
   colorFor: PropTypes.string.isRequired,
   position: PropTypes.string,
   color: PropTypes.string,
-  restrictColorPicker: PropTypes.bool,
+  colorPickerConfig: PropTypes.object,
 };
 
 export default ColorInput;
