@@ -147,7 +147,7 @@ const activateTextChange = (
     if (event.key === 'Enter' || event.key === 'Escape') {
       return;
     }
-    //TODO Get dynamic Variable for max char
+    // TODO Get dynamic Variable for max char
     if (textarea.value.length > 15) {
       const textContent = textarea.value.slice(0, 15);
       editFinishCallback(textContent);

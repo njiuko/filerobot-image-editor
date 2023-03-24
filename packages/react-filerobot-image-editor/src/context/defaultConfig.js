@@ -1,10 +1,5 @@
 /** Internal Dependencies */
-import {
-  DEFAULT_FONTS_SELECTION,
-  MIN_CROP,
-  TABS_IDS,
-  TOOLS_IDS,
-} from 'utils/constants';
+import { MIN_CROP, TABS_IDS, TOOLS_IDS } from 'utils/constants';
 
 export default {
   theme: {
@@ -29,7 +24,7 @@ export default {
   [TOOLS_IDS.TEXT]: {
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     fontFamily: 'Parisienne',
-    fonts: DEFAULT_FONTS_SELECTION,
+    fonts: [],
     fontSize: 14,
     letterSpacing: 0,
     lineHeight: 1,

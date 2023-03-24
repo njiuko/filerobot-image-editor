@@ -28,6 +28,7 @@ import cloudimageQueryToDesignState from 'utils/cloudimageQueryToDesignState';
 import finetunesStrsToClasses from 'utils/finetunesStrsToClasses';
 import filterStrToClass from 'utils/filterStrToClass';
 import isSameImage from 'utils/isSameImage';
+import WebFont from 'webfontloader';
 import {
   StyledAppWrapper,
   StyledMainContent,
@@ -77,6 +78,13 @@ const App = () => {
   const haveNotSavedChangesRef = useRef(haveNotSavedChanges);
   const transformImgFn = useTransformedImgData();
 
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: config.Text.fonts.map((curr) => curr?.value || curr),
+      },
+    });
+  }, []);
   const setNewOriginalImage = useCallback((newOriginalImage) => {
     dispatch({
       type: SET_ORIGINAL_IMAGE,

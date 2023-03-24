@@ -8,7 +8,7 @@ import { TOOLS_IDS } from 'utils/constants';
 import TextControls from './TextControls';
 
 const TextOptions = ({ t, config }) => {
-  const [text, saveText] = useAnnotation({ name: TOOLS_IDS.TEXT }, 20);
+  const [text, saveText] = useAnnotation({ name: TOOLS_IDS.TEXT });
   return (
     <TextControls
       textOptionsConfig={config}

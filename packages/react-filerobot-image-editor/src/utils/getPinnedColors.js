@@ -1,7 +1,5 @@
-import { DEFAULT_COLORS_CONFIG } from './constants';
-
 const pinnedColorsKey = 'FIE_pinnedColors';
-const getPinnedColors = (colorPickerConfig) => {
+const getPinnedColors = (colorPickerConfig, DEFAULT_COLORS_CONFIG) => {
   if (DEFAULT_COLORS_CONFIG.length && Object.keys(colorPickerConfig)) {
     return DEFAULT_COLORS_CONFIG;
   }

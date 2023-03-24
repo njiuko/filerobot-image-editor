@@ -11,7 +11,7 @@ import previewThenCallAnnotationAdding from './previewThenCallAnnotationAdding';
 import useDebouncedCallback from '../useDebouncedCallback';
 
 // TODO: Imporve the logic and separate the selected annotation options from handling preview and options before draw.
-const useAnnotation = (annotation = {}, charLimit = 12,  enablePreview = true) => {
+const useAnnotation = (annotation = {}, enablePreview = true) => {
   const {
     dispatch,
     previewGroup,
@@ -50,16 +50,14 @@ const useAnnotation = (annotation = {}, charLimit = 12,  enablePreview = true) =
   }, []);
 
   const updateTmpAnnotation = useDebouncedCallback((updatesObjOrFn) => {
-    setTmpAnnotation((latest) => {
-      return {
-        ...latest,
-        shouldSave: false,
-        neverSave: false,
-        ...(typeof updatesObjOrFn === 'function'
-          ? updatesObjOrFn(latest)
-          : updatesObjOrFn),
-      };
-    });
+    setTmpAnnotation((latest) => ({
+      ...latest,
+      shouldSave: false,
+      neverSave: false,
+      ...(typeof updatesObjOrFn === 'function'
+        ? updatesObjOrFn(latest)
+        : updatesObjOrFn),
+    }));
   }, 15);
 
   const getAnnotationInitialProps = useCallback(
@@ -120,10 +118,6 @@ const useAnnotation = (annotation = {}, charLimit = 12,  enablePreview = true) =
     const { shouldSave, neverSave, ...savableAnnotation } = tmpAnnotation;
     const selection =
       selectionsIds.length === 1 && annotations[selectionsIds[0]];
-    // if (tmpAnnotation?.text?.length > charLimit) {
-    //   alert('text too long');
-    //   return
-    // }
     if (!neverSave && (shouldSave || selection)) {
       saveAnnotation({
         ...savableAnnotation,
@@ -150,6 +144,7 @@ const useAnnotation = (annotation = {}, charLimit = 12,  enablePreview = true) =
 
   useEffect(() => {
     let stopAnnotationEventsListening = null;
+
     if (canvas && enablePreview) {
       const annotationInitialProps = getAnnotationInitialProps(
         tmpAnnotation,

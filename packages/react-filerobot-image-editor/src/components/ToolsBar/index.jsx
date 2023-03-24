@@ -17,8 +17,9 @@ const ToolsBar = () => {
     toolId,
     annotations,
     selectionsIds = [],
-    config: { defaultTabId, defaultToolId, useCloudimage },
+    config,
   } = useStore();
+  const { defaultTabId, defaultToolId, useCloudimage } = config;
   const currentTabId = tabId || defaultTabId;
   const currentToolId =
     toolId || defaultToolId || TABS_TOOLS[currentTabId]?.[0];
@@ -97,7 +98,7 @@ const ToolsBar = () => {
       <ToolsBarItemOptionsWrapper>
         {ToolOptionsComponent && (
           <ToolOptionsComponent
-            config={TOOLS_ITEMS[tabId]?.config[currentToolId]}
+            config={config[tabId]?.config[currentToolId]}
             t={t}
           />
         )}

@@ -21,7 +21,7 @@ const ColorInput = ({
 }) => {
   const {
     selectionsIds = [],
-    config: { annotationsCommon = {} },
+    config: { annotationsCommon = {}, defaultColors = [] },
     dispatch,
     latestColors = {},
   } = useStore();
@@ -30,9 +30,8 @@ const ColorInput = ({
   const [currentColor, setCurrentColor] = useState(
     () => latestColor || color || annotationsCommon.fill,
   );
-
   const [pinnedColors, setPinnedColors] = useState(
-    getPinnedColors(colorPickerConfig),
+    getPinnedColors(colorPickerConfig, defaultColors),
   );
 
   const changePinnedColors = (newPinnedColors) => {
@@ -43,7 +42,6 @@ const ColorInput = ({
       window.localStorage.getItem(pinnedColorsKey);
     if (JSON.stringify(newPinnedColors) !== localStoragePinnedColors) {
       const maxOfSavedColors = colorPickerConfig?.pinnedColorsLimit;
-      console.log(maxOfSavedColors)
       const pinnedColorsToSave = newPinnedColors.slice(-maxOfSavedColors);
       window.localStorage.setItem(
         pinnedColorsKey,
@@ -119,7 +117,7 @@ ColorInput.propTypes = {
   colorFor: PropTypes.string.isRequired,
   position: PropTypes.string,
   color: PropTypes.string,
-  colorPickerConfig: PropTypes.object,
+  colorPickerConfig: PropTypes.instanceOf(Object),
 };
 
 export default ColorInput;

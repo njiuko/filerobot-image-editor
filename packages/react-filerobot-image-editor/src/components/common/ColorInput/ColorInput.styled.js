@@ -28,24 +28,25 @@ const StyledColorPicker = styled(ColorPicker)`
   }`}
 
   ${({ colorPickerConfig }) =>
+    colorPickerConfig?.restrictPicker &&
     Object.keys(colorPickerConfig?.restrictPicker)
       ? `
     ${
-      colorPickerConfig?.restrictPicker.hideRangePicker
+      colorPickerConfig?.restrictPicker?.hideRangePicker
         ? `& > .SfxColorPicker-range-picker {
             display: none !important;
           }`
         : ''
     }
     ${
-      colorPickerConfig?.restrictPicker.hideBarWrapper
+      colorPickerConfig?.restrictPicker?.hideBarWrapper
         ? `& > .SfxColorPicker-bar-wrapper {
             display: none !important;
           }`
         : ''
     }
     ${
-      colorPickerConfig?.restrictPicker.hidePickerAction
+      colorPickerConfig?.restrictPicker?.hidePickerAction
         ? `& > .SfxColorPicker-action {
             display: none !important;
           }`
