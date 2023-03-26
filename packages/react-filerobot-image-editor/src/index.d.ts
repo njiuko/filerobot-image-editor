@@ -262,6 +262,28 @@ export interface FilerobotImageEditorConfig {
   Watermark?: {
     gallery?: string[] | [];
   };
+  // [TOOLS_IDS.Stickers]
+  Stickers?: {
+    gallery?: string[] | [];
+    config?: {
+      colorPickerConfig:{
+        pinnedColorsLimit?: boolean | false;
+        restrictPicker:{
+          hideRangePicker?: boolean | false;
+          hideBarWrapper?: boolean | false;
+          hidePickerAction?: boolean | false;
+        },
+      },
+      disableTextBoldOption?: boolean | false;
+      disableTextItalicOption?: boolean | false;
+      disableTextAlignment?: boolean | false;
+      disableTextSpacings?: boolean | false;
+      disableOpacity?: boolean | false;
+      disableStroke?: boolean | false;
+      disableShadow?: boolean | false;
+      disablePosition?: boolean | false;
+    } | {};
+  };
   // [TOOLS_IDS.CROP]
   Crop?: {
     minWidth?: number;
