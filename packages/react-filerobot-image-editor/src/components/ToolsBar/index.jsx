@@ -98,7 +98,7 @@ const ToolsBar = () => {
       <ToolsBarItemOptionsWrapper>
         {ToolOptionsComponent && (
           <ToolOptionsComponent
-            config={config[tabId]?.config[currentToolId]}
+            config={config[tabId]?.config?.[currentToolId]}
             t={t}
           />
         )}
