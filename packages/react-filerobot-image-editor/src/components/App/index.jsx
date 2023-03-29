@@ -79,11 +79,16 @@ const App = () => {
   const transformImgFn = useTransformedImgData();
 
   useEffect(() => {
-    WebFont.load({
-      google: {
-        families: config.Text.fonts.map((curr) => curr?.value || curr),
-      },
-    });
+    if (config?.Text?.fonts?.length){
+      WebFont.load({
+        google: {
+          families: config?.Text?.fonts?.map((curr) => curr?.value || curr) || [
+            'Arial',
+            'sans-serif',
+          ],
+        },
+      });
+    }
   }, []);
   const setNewOriginalImage = useCallback((newOriginalImage) => {
     dispatch({
